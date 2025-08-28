@@ -1,0 +1,86 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  place-items: center;
+  min-height: 100svh;
+  margin: 0;
+  display: grid;
+}
+
+.stopwatch {
+  box-sizing: content-box;
+  border: 1vmin dotted #000;
+  border-radius: 50%;
+  width: 80vmin;
+  height: 80vmin;
+  position: relative;
+}
+
+.stopwatch__arm {
+  transform-origin: 50%;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.stopwatch__arm:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+}
+
+.stopwatch__arm--seconds {
+  animation: 60s linear infinite spin;
+}
+
+.stopwatch__arm--seconds:before {
+  background: #2c8000;
+  width: 1.5vmin;
+  height: 38vmin;
+}
+
+.stopwatch__arm--minutes {
+  animation: 3600s steps(60, end) infinite spin;
+}
+
+.stopwatch__arm--minutes:before {
+  background: #0700ff;
+  width: 3vmin;
+  height: 20vmin;
+}
+
+.stopwatch__center {
+  background: #f6a603;
+  border-radius: 50%;
+  width: 5vmin;
+  height: 5vmin;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stopwatch--speed-up .stopwatch__arm--seconds {
+  animation-duration: 10s;
+}
+
+.stopwatch--speed-up .stopwatch__arm--minutes {
+  animation-duration: 600s;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*# sourceMappingURL=index.e378193d.css.map */
